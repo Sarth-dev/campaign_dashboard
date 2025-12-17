@@ -1,4 +1,9 @@
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "campaign-dashboard-25c9.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 
 import sys
 from pathlib import Path
@@ -28,11 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = [
-    "campaign-dashboard-25c9.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+
 
 
 APPEND_SLASH = True
