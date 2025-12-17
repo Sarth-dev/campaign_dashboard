@@ -5,12 +5,11 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
 from .models import Campaign
+from rest_framework.viewsets import ModelViewSet
 from .serializers import CampaignSerializer
 # Create your views here.
 
-@api_view(["GET"])
-def campaign_list(request):
-    return Response([])
+
 
 def dashboard(request):
     campaigns = Campaign.objects.all()
@@ -57,6 +56,6 @@ def usd_to_inr_rate(request):
         )
     
 
-class CampaignViewSet(viewsets.ModelViewSet):
-    queryset = Campaign.objects.all().order_by('-created_at')
+class CampaignViewSet(ModelViewSet):
+    queryset = Campaign.objects.all()
     serializer_class = CampaignSerializer
