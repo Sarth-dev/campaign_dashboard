@@ -1,5 +1,12 @@
 ALLOWED_HOSTS = ["*"]
 
+import sys
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+sys.path.append(str(BASE_DIR))
+
 CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
 
 from pathlib import Path
@@ -51,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'backend.backend.urls'
 
 TEMPLATES = [
     {
