@@ -8,6 +8,9 @@ from .models import Campaign
 from .serializers import CampaignSerializer
 # Create your views here.
 
+@api_view(["GET"])
+def campaign_list(request):
+    return Response([])
 
 def dashboard(request):
     campaigns = Campaign.objects.all()
