@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     # Local apps
-    'backend.campaigns',
+    "campaigns.apps.CampaignsConfig",
 ]
 
 MIDDLEWARE = [
@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.backend.urls'
+ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
