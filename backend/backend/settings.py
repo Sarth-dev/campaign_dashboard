@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 sys.path.append(str(BASE_DIR))
 
-CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://campaign-dashboard-25c9.onrender.com"]
 
 from pathlib import Path
 import os
@@ -28,7 +28,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "campaign-dashboard-25c9.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 
 APPEND_SLASH = True
 
