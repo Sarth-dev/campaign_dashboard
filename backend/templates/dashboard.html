@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Campaign Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<h2>Campaign Performance Dashboard</h2>
+
+<h3>Total Budget by Platform</h3>
+<canvas id="budgetChart"></canvas>
+
+<h3>Clicks vs Impressions</h3>
+<canvas id="performanceChart"></canvas>
+
+{{ platform_labels|json_script:"platformLabels" }}
+{{ platform_budgets|json_script:"platformBudgets" }}
+{{ campaign_names|json_script:"campaignNames" }}
+{{ clicks|json_script:"clickData" }}
+{{ impressions|json_script:"impressionData" }}
+
+
+<script>
+    const platformLabels = JSON.parse(
+        document.getElementById('platformLabels').textContent
+    );
+    const platformBudgets = JSON.parse(
+        document.getElementById('platformBudgets').textContent
+    );
+
+    const campaignNames = JSON.parse(
+        document.getElementById('campaignNames').textContent
+    );
+    const clickData = JSON.parse(
+        document.getElementById('clickData').textContent
+    );
+    const impressionData = JSON.parse(
+        document.getElementById('impressionData').textContent
+    );
+
+    new Chart(document.getElementById('budgetChart'), {
+        type: 'bar',
+        data: {
+            labels: platformLabels,
+            datasets: [{
+                label: 'Budget',
+                data: platformBudgets
+            }]
+        }
+    });
+
+    new Chart(document.getElementById('performanceChart'), {
+        type: 'bar',
+        data: {
+            labels: campaignNames,
+            datasets: [
+                { label: 'Clicks', data: clickData },
+                { label: 'Impressions', data: impressionData }
+            ]
+        }
+    });
+</script>
+
+
+
+</body>
+</html>
